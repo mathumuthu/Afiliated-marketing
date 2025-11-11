@@ -330,199 +330,162 @@ span{
 
 
 
-.testimonial-section {
+
+
+
+
+/* === CONTACT SECTION === */
+.contact-section {
   padding: 80px 20px;
   background: #f8f9fc;
-  text-align: center;
+  color: #333;
 }
-.testimonial-section .container {
+.contact-section .container {
   max-width: 1100px;
-  margin: auto;
+  margin: 0 auto;
 }
-.testimonial-section h2 {
+.contact-section h2 {
   font-size: 2.4rem;
-  color: #222;
-  margin-bottom: 50px;
-  opacity: 0;
-  animation: fadeInUp 1s ease-out forwards;
-}
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap: 30px;
-}
-.testimonial-card {
-  background: #fff;
-  padding: 30px 20px;
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 15px;
   opacity: 0;
   transform: translateY(30px);
-  animation: cardRise 0.8s ease-out forwards;
-}
-.testimonial-card:nth-child(1) { animation-delay: 0.2s; }
-.testimonial-card:nth-child(2) { animation-delay: 0.4s; }
-.testimonial-card:nth-child(3) { animation-delay: 0.6s; }
-.testimonial-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-.testimonial-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 15px;
-}
-.testimonial-quote {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 12px;
-}
-.testimonial-author {
-  font-size: 0.95rem;
-  color: #007bff;
-  font-weight: 600;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-@keyframes cardRise {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-/* Media Query ≤450px */
-@media (max-width: 450px) {
-  .testimonial-section {
-    padding: 40px 10px;
-  }
-  .testimonial-section h2 {
-    font-size: 1.9rem;
-  }
-  .testimonial-grid {
-    gap: 20px;
-  }
-  .testimonial-card {
-    padding: 20px 15px;
-  }
-  .testimonial-quote {
-    font-size: 0.9rem;
-  }
-  .testimonial-author {
-    font-size: 0.85rem;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-.slider-style .container {
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
-}
-.slider-style h2 {
-  font-size: 2.4rem;
-  color: #222;
-  margin-bottom: 40px;
-  opacity: 0;
   animation: fadeInUp 1s ease-out forwards;
 }
-.slider-wrapper {
-  position: relative;
-  overflow: hidden;
-  height: 260px;
-}
-.slide {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.slide.active {
-  opacity: 1;
-  transform: scale(1);
-}
-.slide .testimonial-avatar {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto 15px;
-}
-.slide .testimonial-quote {
-  font-size: 1.05rem;
+.contact-section .intro {
+  font-size: 1.1rem;
   color: #555;
-  line-height: 1.6;
-  margin:-0 20px 15px;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.3s;
 }
-.slide .testimonial-author {
-  font-size: 0.9rem;
-  color: #007bff;
-  font-weight: 600;
+.contact-wrap {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
 }
-.slider-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.2);
-  border: none;
+.contact-form {
+  flex: 1 1 60%;
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 2px 10px rgba(0,123,255,0.15);
+  outline: none;
+}
+.btn-submit {
+  padding: 14px 32px;
+  background: #007bff;
   color: #fff;
-  font-size: 2rem;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
-.slider-nav.prev {
-  left: 10px;
+.btn-submit:hover {
+  background: #0056cc;
 }
-.slider-nav.next {
-  right: 10px;
+.contact-info {
+  flex: 1 1 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
-.slider-nav:hover {
-  background: rgba(0,0,0,0.4);
+.info-box h4 {
+  font-size: 1.2rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+.info-box p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
 }
 
-/* Media Query ≤450px */
-@media (max-width: 450px) {
-  .slider-style {
-    padding: 40px 10px;
+/* === ANIMATIONS === */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  .slider-style h2 {
-    font-size: 1.9rem;
-  }
-  .slider-wrapper {
-    height: auto;
-  }
-  .slide .testimonial-quote {
-    font-size: 0.9rem;
-    margin: 0 10px 15px;
-  }
-  .slide .testimonial-author {
-    font-size: 0.8rem;
-  }
-  .slider-nav {
-    display: none; /* hide nav on very small screens if you prefer */
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+/* === MEDIA QUERY ≤ 450px === */
+@media (max-width: 450px) {
+  .contact-section {
+    padding: 40px 10px;
+  }
+  .contact-section h2 {
+    font-size: 1.9rem;
+  }
+  .contact-section .intro {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+  .contact-wrap {
+    flex-direction: column;
+    gap: 25px;
+  }
+  .contact-form {
+    flex: 1 1 100%;
+    padding: 20px 15px;
+  }
+  .btn-submit {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+  }
+  .contact-info {
+    flex: 1 1 100%;
+    gap: 20px;
+  }
+  .info-box h4 {
+    font-size: 1.1rem;
+  }
+  .info-box p {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -669,13 +632,3 @@ span{
     width: 100%;
   }
 }
-
-
-
-
-
-
-
-
-
-
