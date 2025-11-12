@@ -13,161 +13,210 @@
     --bg:#0f1724;
     --panel:#0b1220;
     --muted:#98a0b3;
-    --accent:#7c3aed; /* purple */
-    --accent-2:#06b6d4; /* teal */
+    --accent:#7c3aed;
+    --accent-2:#06b6d4;
     --glass: rgba(255,255,255,0.03);
     --card: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   }
-.logo > div {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
 
-.logo-name {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-}
-
-.logo-name span:first-child {
-  font-weight: 800;
-  letter-spacing: 0.5px;
-}
-
-.logo-name span:last-child {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 2px;
-}
-/* Prevent horizontal scroll */
-html, body {
+  html, body {
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(180deg,#071026 0%, #071a2b 100%);
+    color: #e6eef8;
     overflow-x: hidden;
-}
-
-/* Ensure images and other elements scale */
-img, iframe, video {
-    max-width: 100%;
-    height: auto;
-}
-
-
-  /* Layout */
-  html,body{height:100%;margin:0;
-    /* background-color: rgb(170, 30, 170); */
-    background:linear-gradient(180deg,#071026 0%, #071a2b 100%);
-    color:#e6eef8;}
-  .app{display:flex;height:100vh;gap:18px;padding:20px;box-sizing:border-box;}
-  .sidebar{
-    width:260px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border-radius:16px;padding:22px;box-shadow:0 6px 20px rgba(2,6,23,0.6);backdrop-filter: blur(6px);
-    transform: translateX(0); transition: transform 420ms cubic-bezier(.2,.9,.3,1);
-    display:flex;flex-direction:column;gap:18px;
-  }
-  .sidebar.hidden{transform: translateX(-320px);}
-
-  /* Glowing logo */
-  .logo{
-    font-weight:800;font-size:20px;letter-spacing:0.6px;
-    display:flex;align-items:center;gap:12px;
-  }
-  .logo .orb{
-    width:36px;height:36px;border-radius:9px;
-    background: linear-gradient(135deg,var(--accent), var(--accent-2));
-    box-shadow:0 6px 22px rgba(124,58,237,0.28), 0 0 40px rgba(6,182,212,0.08);
-    display:flex;align-items:center;justify-content:center;font-weight:900;
-    animation: orbPulse 2000ms infinite alternate;
-  }
-  @keyframes orbPulse{
-    from{transform: translateY(0) scale(1);filter:blur(0px);}
-    to{transform: translateY(-4px) scale(1.05);filter:blur(.2px);}
   }
 
-  .navlinks{display:flex;flex-direction:column;gap:8px;margin-top:6px;}
-  .navlinks a{
-    padding:10px;border-radius:10px;text-decoration:none;color:var(--muted);display:flex;gap:10px;align-items:center;
-    transform: translateX(-12px); opacity:0; transition: all 400ms cubic-bezier(.2,.9,.3,1);
+  .app {
+    display: flex;
+    height: 100vh;
+    gap: 18px;
+    padding: 20px;
+    box-sizing: border-box;
   }
-  /* slide-in stagger via inline style from JS */
 
-  .navlinks a.active{background: linear-gradient(90deg, rgba(124,58,237,0.12), rgba(6,182,212,0.06)); color:#fff; box-shadow: 0 6px 16px rgba(2,6,23,0.5);}
-
-  /* Main area */
-  .main{flex:1;display:flex;flex-direction:column;gap:18px;overflow:auto;padding:6px;}
-  .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px}
-  .search{
-    display:flex;align-items:center;background:var(--glass);padding:10px;border-radius:12px;gap:8px;width:420px;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+  .sidebar {
+    width: 260px;
+    background: var(--card);
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 6px 20px rgba(2,6,23,0.6);
+    backdrop-filter: blur(6px);
+    transform: translateX(0);
+    transition: transform 420ms cubic-bezier(.2,.9,.3,1);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
   }
-  .search input{background:transparent;border:0;color:#d8e7ff;outline:none;font-size:14px;width:100%}
 
-  .toggle-btn{background:transparent;border:0;color:var(--muted);font-weight:600;cursor:pointer;padding:8px 10px;border-radius:10px}
-  .toggle-btn:active{transform: scale(.98)}
-
-  /* Cards grid */
-  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-  .card{
-    padding:18px;border-radius:12px;background:var(--card);box-shadow:0 6px 20px rgba(2,6,23,0.5);
-    transition: transform 250ms, box-shadow 250ms, filter 250ms; transform-origin:center;
-    opacity:0; transform: translateY(14px) scale(.995);
+  .sidebar.hidden {
+    transform: translateX(-320px);
   }
-  .card:hover{transform: translateY(-6px) scale(1.01); box-shadow:0 18px 40px rgba(7,10,35,0.6); filter:brightness(1.04);}
 
-  .card .title{font-size:13px;color:var(--muted);margin-bottom:8px}
-  .card .value{font-size:22px;font-weight:700}
-  .muted{color:var(--muted);font-size:13px}
-
-  /* Chart area */
-  .panel{
-    margin-top:6px;padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01));
-    box-shadow: 0 8px 30px rgba(2,6,23,0.45)
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
-  .chart-wrap{height:320px;display:flex;flex-direction:column;gap:12px}
 
-  /* Responsive */
+  .logo img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .logo div span:first-child {
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+
+  .logo div span:last-child {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .navlinks {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 6px;
+  }
+
+  .navlinks a {
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--muted);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    transform: translateX(-12px);
+    opacity: 0;
+    transition: all 400ms cubic-bezier(.2,.9,.3,1);
+  }
+
+  .navlinks a.active {
+    background: linear-gradient(90deg, rgba(124,58,237,0.12), rgba(6,182,212,0.06));
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(2,6,23,0.5);
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    overflow: auto;
+    padding: 6px;
+  }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .toggle-btn {
+    background: transparent;
+    border: 0;
+    color: var(--muted);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 10px;
+  }
+
+  .toggle-btn:active {
+    transform: scale(.98);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 16px;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 12px;
+    background: var(--card);
+    box-shadow: 0 6px 20px rgba(2,6,23,0.5);
+    transition: transform 250ms, box-shadow 250ms, filter 250ms;
+    transform-origin: center;
+    opacity: 0;
+    transform: translateY(14px) scale(.995);
+  }
+
+  .card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 18px 40px rgba(7,10,35,0.6);
+    filter: brightness(1.04);
+  }
+
+  .card .title {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .card .value {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .muted {
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .panel {
+    margin-top: 6px;
+    padding: 16px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01));
+    box-shadow: 0 8px 30px rgba(2,6,23,0.45);
+  }
+
+  .chart-wrap {
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
   @media(max-width:1100px){
     .grid{grid-template-columns:repeat(2,1fr)}
     .sidebar{width:220px}
   }
+
   @media(max-width:760px){
     .app{flex-direction:column;padding:12px}
-    .sidebar{width:100%;display:flex;flex-direction:row;align-items:center;gap:10px;padding:12px;border-radius:12px}
-    .navlinks{display:flex;flex-direction:row;gap:6px;overflow:auto}
+    .sidebar{width:100%;flex-direction:row;align-items:center;gap:10px;padding:12px;border-radius:12px}
+    .navlinks{flex-direction:row;gap:6px;overflow:auto}
     .grid{grid-template-columns:repeat(1,1fr)}
   }
 
-  /* small utils */
-  .row{display:flex;align-items:center;gap:12px}
-  .count{font-weight:800;font-size:20px}
-  .spark{font-size:12px;color:lightgreen}
-
-  /* subtle fade-in for whole main */
-  .main.animate-in{animation: mainFade 700ms ease both}
-  @keyframes mainFade{ from{opacity:0; transform: translateY(8px)} to{opacity:1;transform:none} }
-
-  /* counters helper (appear) */
   .visible{opacity:1; transform:none}
+  .main.animate-in{animation: mainFade 700ms ease both}
+  @keyframes mainFade{from{opacity:0; transform: translateY(8px)}to{opacity:1;transform:none}}
 </style>
 </head>
 <body>
   <div class="app">
     <aside class="sidebar" id="sidebar">
       <div class="logo">
-  <div style="display:flex;align-items:center;gap:8px;">
-    <img src="img5.webp" width="36" height="36" alt="">
-    <div style="display:flex;flex-direction:column;line-height:1">
-      <span style="font-weight:800;letter-spacing:0.5px;">STACKLY</span>
-      <span style="font-size:11px;color:var(--muted);margin-top:2px">Affiliate Dashboard</span>
-    </div>
-  </div>
-</div>
-
+        <img src="img5.webp" alt="logo">
+        <div>
+          <span>STACKLY</span>
+          <span>Affiliate Dashboard</span>
+        </div>
+      </div>
 
       <nav class="navlinks" id="navlinks">
         <a href="./index.html"><span>📈</span> <span>Home</span></a>
         <a href="404.html" class="active"><span>🏠</span> <span>Overview</span></a>
-        <a href="404.html"><span>📈</span> <span>Analytics</span></a>
+        <a href="404.html"><span>📊</span> <span>Analytics</span></a>
         <a href="404.html"><span>🤝</span> <span>Partners</span></a>
         <a href="404.html"><span>💳</span> <span>Commissions</span></a>
         <a href="404.html"><span>⚙️</span> <span>Settings</span></a>
@@ -176,26 +225,21 @@ img, iframe, video {
       <div style="margin-top:auto" class="muted">© <span id="year"></span> Stackly</div>
     </aside>
 
-     <main class="main animate-in" id="main">
+    <main class="main animate-in" id="main">
       <div class="topbar"> 
         <div class="row">
           <button class="toggle-btn" id="toggleSidebar">☰</button>
-           <div class="search">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="opacity:.7"><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.6"></circle></svg> 
-            <input placeholder="Search reports, partners, commissions..." />
-          </div> 
+          <div style="font-weight:700;">Dashboard</div>
         </div>
 
-          <div class="row">
+        <div class="row">
           <div style="text-align:right">
-            <div style="font-weight:700">Hello, </div>
+            <div style="font-weight:700">Hello,</div>
             <div class="muted" style="font-size:12px">Active • Dashboard</div>
           </div>
-          <!-- <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 10px 26px rgba(6,182,212,0.08);margin-left:12px"></div> -->
         </div>
       </div>  
 
-      <!-- cards -->
       <section class="grid" id="cards">
         <div class="card" data-animate>
           <div class="title">Total Clicks</div>
@@ -222,7 +266,6 @@ img, iframe, video {
         </div>
       </section>
 
-      <!-- chart -->
       <section class="panel">
         <div style="display:flex;align-items:center;justify-content:space-between">
           <div>
@@ -237,7 +280,6 @@ img, iframe, video {
         </div>
       </section>
 
-      <!-- lower area -->
       <section style="display:flex;gap:16px;margin-top:12px;align-items:flex-start;flex-wrap:wrap">
         <div style="flex:1;min-width:320px" class="panel">
           <div style="font-weight:700;margin-bottom:8px">Recent Activity</div>
@@ -266,37 +308,28 @@ img, iframe, video {
   </div>
 
 <script>
-  // set year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Sidebar toggle
   const sidebar = document.getElementById('sidebar');
   document.getElementById('toggleSidebar').addEventListener('click', () => {
     sidebar.classList.toggle('hidden');
   });
 
-  // Nav link slide-in stagger
   const navlinks = document.querySelectorAll('#navlinks a');
   navlinks.forEach((link,i) => {
-    // staggered delay
     link.style.transitionDelay = (i*80) + 'ms';
-    // trigger appear
     setTimeout(()=>{ link.style.transform='translateX(0)'; link.style.opacity = 1; }, 120 + i*70);
   });
 
-  // Intersection Observer to reveal cards & animate counters
   const cards = document.querySelectorAll('[data-animate]');
-  const counts = document.querySelectorAll('.count');
-
   const observer = new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
       if(entry.isIntersecting){
         entry.target.classList.add('visible');
         entry.target.style.opacity = 1;
         entry.target.style.transform = 'translateY(0) scale(1)';
-        // start counters inside
-        const insideCounts = entry.target.querySelectorAll('.count');
-        insideCounts.forEach(c=> animateCount(c));
+        const counts = entry.target.querySelectorAll('.count');
+        counts.forEach(c=> animateCount(c));
         observer.unobserve(entry.target);
       }
     });
@@ -304,42 +337,30 @@ img, iframe, video {
 
   cards.forEach(c => observer.observe(c));
 
-  // animate single count element
   function animateCount(el){
     if(el.dataset.animated) return;
     el.dataset.animated = '1';
     const target = parseInt(el.getAttribute('data-target')) || 0;
-    const isCurrency = el.parentElement.textContent.trim().startsWith('₹') || el.parentElement.previousElementSibling?.textContent?.includes('Revenue');
     const duration = 1400;
     const start = 0;
     const startTime = performance.now();
     function tick(now){
       const p = Math.min(1, (now - startTime) / duration);
-      // ease out
       const eased = 1 - Math.pow(1-p, 3);
       const current = Math.floor(eased * (target - start) + start);
-      el.textContent = formatNumber(current);
+      el.textContent = current.toLocaleString();
       if(p < 1) requestAnimationFrame(tick);
-      else el.textContent = formatNumber(target);
+      else el.textContent = target.toLocaleString();
     }
     requestAnimationFrame(tick);
   }
 
-  function formatNumber(n){
-    // simple thousands separator for clarity
-    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-
-  // Chart.js area chart with zoom-in animation on load
   const ctx = document.getElementById('salesChart').getContext('2d');
-
-  // create some sample last-30-days data
   const days = Array.from({length:30}, (_,i) => {
     const d = new Date();
     d.setDate(d.getDate() - (29 - i));
     return (d.getMonth()+1) + '/' + d.getDate();
   });
-
   const clicks = Array.from({length:30}, ()=> Math.floor(400 + Math.random()*1200));
   const revenue = clicks.map(c => Math.round(c * (0.6 + Math.random()*1.2)));
 
@@ -347,7 +368,7 @@ img, iframe, video {
   gradient.addColorStop(0, 'rgba(124,58,237,0.28)');
   gradient.addColorStop(1, 'rgba(6,182,212,0.06)');
 
-  const salesChart = new Chart(ctx, {
+  new Chart(ctx, {
     type: 'line',
     data: {
       labels: days,
@@ -376,50 +397,14 @@ img, iframe, video {
     options: {
       responsive:true,
       maintainAspectRatio:false,
-      interaction:{mode:'index',intersect:false},
-      plugins:{
-        legend:{display:true,labels:{color:'#dbeafe'}},
-        tooltip:{mode:'index', intersect:false}
-      },
+      plugins:{ legend:{labels:{color:'#dbeafe'}} },
       scales:{
-        x:{display:false,ticks:{color:'#9fb7d9'}},
-        y:{display:true,ticks:{color:'#9fb7d9'}, grid:{color:'rgba(255,255,255,0.02)'}}
+        x:{display:false},
+        y:{ticks:{color:'#9fb7d9'}, grid:{color:'rgba(255,255,255,0.02)'}}
       },
-      animation:{
-        onComplete: ()=> { /* placeholder if we want to chain animation */ },
-        duration: 900,
-        easing: 'easeOutCubic'
-      }
+      animation:{duration:900,easing:'easeOutCubic'}
     }
   });
-
-  // chart "zoom in" effect (scale canvas container)
-  const chartWrap = document.querySelector('.chart-wrap');
-  chartWrap.style.transform = 'scale(.96)';
-  chartWrap.style.opacity = 0;
-  chartWrap.style.transition = 'transform 700ms cubic-bezier(.2,.9,.3,1), opacity 600ms';
-  setTimeout(()=>{ chartWrap.style.transform = 'scale(1)'; chartWrap.style.opacity = 1; }, 400);
-
-  // On load, animate counters in header cards that might be visible immediately
-  document.querySelectorAll('.card').forEach(c=>{
-    if(c.getBoundingClientRect().top < window.innerHeight) {
-      c.style.opacity = 1;
-      c.style.transform = 'translateY(0) scale(1)';
-      c.querySelectorAll('.count').forEach(el => animateCount(el));
-    }
-  });
-
-  // small accessibility: keyboard toggle
-  document.addEventListener('keydown', e=>{
-    if(e.key === 'm'){ sidebar.classList.toggle('hidden'); }
-  });
-
-  // gentle hover glow for cards (add subtle CSS shadow - already set)
-  // Done via :hover in CSS
-
-  // OPTIONAL: If user wants to change numbers easily, you can call:
-  // document.querySelector('[data-target="12874"]').setAttribute('data-target', '15000');
-
 </script>
 </body>
 </html>
