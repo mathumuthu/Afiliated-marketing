@@ -6,29 +6,15 @@
   <link rel="icon" href="./logo.png" />
   <title>Business</title>
   <link rel="stylesheet" href="./contact 2.css" />
-   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> -->
-    
-    <!-- <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" /> -->
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-
-    <div class="topbar">
+  <div class="topbar">
     <header class="header">
       <div class="logo">
         <img src="img5.webp" alt="STACKLY Logo" />
         <h2>STACKLY</h2>
-      </div>
-      <div class="contact">
-        <div class="contact1">
-          <!-- <p class="phone"><a href="./404.html">+91 12345 67890</a></p> -->
-          <!-- <p class="email"><a href="./404.html">info@stackly.com</a></p> -->
-        </div>
-        <!-- <div class="time">
-          <p class="hours">Mon-Fri: 9 am-6 pm</p>
-        </div> -->
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation">☰</button>
     </header>
@@ -45,7 +31,6 @@
           <li><a href="./about.html">Products</a></li>
           <li><a href="./steps.html">Steps</a></li>
           <li><a href="./commission.html">Commisssion</a></li>
-          <!-- <li><a href="./dashboard.html">DashBoard</a></li> -->
           <li><a href="./login 2.html">Log In</a></li>
           <li class="sign"><button onclick="window.location.href='./contact 2.html'">Contact Us → </button></li>
         </ul>
@@ -53,104 +38,119 @@
     </nav>
   </div>
 
-
-
-
-
-
-
-
-<section id="contact" class="contact-section">
-  <div class="container">
-    <h2>Get in Touch</h2>
-    <p class="intro">Have questions about our affiliate program or ready to join? Send us a message and we’ll get back within 24 hours.</p>
-    <div class="contact-wrap">
-      <form class="contact-form" action="#" method="post">
-        <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help you" required></textarea>
-        </div>
-        <button type="button" class="btn-submit" onclick="window.location.href='./404.html'">Send Message</button>
-      </form>
-      <div class="contact-info">
-        <div class="info-box">
-          <h4>Our Support</h4>
-          <p>Email: support@stackly.com</p>
-          <p>Phone: +91 12345 67890</p>
-        </div>
-        <div class="info-box">
-          <h4>Office Hours</h4>
-          <p>Mon-Fri: 9 am – 6 pm</p>
-          <p>Weekend: Response within 48 h</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-
-
-   <footer id="site-footer">
-  <div class="footer-container">
-    <div class="footer-top">
-      <div class="footer-col">
-        <h4>About Us</h4>
-        <p>We’re committed to transparent partnerships and helping our affiliates succeed.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="home 2.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="commission.html">Commission Tiers</a></li>
-          <li><a href="contact 2.html">Contact</a></li>
-          <li><a href="testimonials.html">Affiliate Program</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="404.html">Blog</a></li>
-          <li><a href="404.html">FAQs</a></li>
-          <li><a href="404.html">Privacy Policy</a></li>
-          <li><a href="404.html">Terms & Conditions</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Stay Connected</h4>
-        <div class="social-icons">
-          <a href="404.html"><i class="fab fa-facebook"></i></a>
-          <a href="404.html"><i class="fab fa-twitter"></i></a>
-          <a href="404.html"><i class="fab fa-linkedin"></i></a>
-          <a href="404.html"><i class="fab fa-instagram"></i></a>
-        </div>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Your email address" required>
-          <button> <a href="404.html">Subscribe</a></button>
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Get in Touch</h2>
+      <p class="intro">Have questions about our affiliate program or ready to join? Send us a message and we’ll get back within 24 hours.</p>
+      <div class="contact-wrap">
+        <form class="contact-form" id="contactForm" action="#" method="post">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help you" required></textarea>
+          </div>
+          <!-- ✅ fixed button (no inline onclick) -->
+          <button type="button" class="btn-submit">Send Message</button>
         </form>
+
+        <div class="contact-info">
+          <div class="info-box">
+            <h4>Our Support</h4>
+            <p>Email: support@stackly.com</p>
+            <p>Phone: +91 12345 67890</p>
+          </div>
+          <div class="info-box">
+            <h4>Office Hours</h4>
+            <p>Mon-Fri: 9 am – 6 pm</p>
+            <p>Weekend: Response within 48 h</p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© <span id="copyright-year"></span> YourBrand. All rights reserved.</p>
+  </section>
+
+  <footer id="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <p>We’re committed to transparent partnerships and helping our affiliates succeed.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="home 2.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="commission.html">Commission Tiers</a></li>
+            <li><a href="contact 2.html">Contact</a></li>
+            <li><a href="testimonials.html">Affiliate Program</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="404.html">Blog</a></li>
+            <li><a href="404.html">FAQs</a></li>
+            <li><a href="404.html">Privacy Policy</a></li>
+            <li><a href="404.html">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Stay Connected</h4>
+          <div class="social-icons">
+            <a href="404.html"><i class="fab fa-facebook"></i></a>
+            <a href="404.html"><i class="fab fa-twitter"></i></a>
+            <a href="404.html"><i class="fab fa-linkedin"></i></a>
+            <a href="404.html"><i class="fab fa-instagram"></i></a>
+          </div>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required>
+            <button><a href="404.html">Subscribe</a></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="copyright-year"></span> YourBrand. All rights reserved.</p>
+      </div>
     </div>
-  </div>
-</footer>
-
-
+  </footer>
 
   <script src="./home 2 .js"></script>
+
+  <script>
+    // Contact form validation
+    document.querySelector(".btn-submit").addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      // Check for empty fields
+      if (name === "" || email === "" || message === "") {
+        alert("⚠️ Please fill in all required fields before sending the message.");
+        return; // stay on same page
+      }
+
+      // Check valid email format
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        alert("📧 Please enter a valid email address.");
+        return;
+      }
+
+      // ✅ All fields filled correctly
+      alert("🎉 Welcome! Your message was sent successfully.");
+      window.location.href = "./404.html"; // redirect only after success
+    });
+  </script>
+
 </body>
 </html>

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login / Signup / Forgot Password | Stackly</title>
+  <title>Account Access</title>
+  <link rel="icon" href="logo.png" />
   <style>
     * {
       margin: 0;
@@ -12,221 +13,215 @@
       font-family: "Poppins", sans-serif;
     }
 
-    :root {
-      --bg: #8a1174;
-      --text: #111827;
-      --card: #fff;
-      --primary: #4f46e5;
-      --border: #d1d5db;
-    }
-
-    body.dark {
-      --bg: #0f172a;
-      --text: #f1f5f9;
-      --card: #1e293b;
-      --primary: #6366f1;
-      --border: #475569;
-    }
-
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: linear-gradient(180deg, #670d7b, #910aa9);
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: 0.3s;
     }
 
     .container {
-      background: var(--card);
-      width: 350px;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      animation: fadeIn 0.5s ease;
-      position: relative;
+      background: #dcdcdc;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      width: 90%;
+      max-width: 380px;
+      transition: 0.5s ease;
+      text-align: center;
     }
 
     h2 {
-      text-align: center;
-      margin-bottom: 1.2rem;
-      color: var(--primary);
+      margin-bottom: 20px;
+      color: #5c007a;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
+    .input-group {
+      text-align: left;
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
     }
 
     input {
-      margin: 0.5rem 0;
-      padding: 0.8rem;
-      border: 1px solid var(--border);
-      border-radius: 0.5rem;
-      background: transparent;
-      color: var(--text);
-      font-size: 1rem;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      transition: 0.3s;
     }
 
     input:focus {
-      border-color: var(--primary);
-      outline: none;
+      border-color: #007bff;
     }
 
-    button {
-      margin-top: 1rem;
-      padding: 0.8rem;
-      border: none;
-      border-radius: 0.5rem;
-      background: var(--primary);
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      margin-top: -5px;
+      margin-bottom: 15px;
+    }
+
+    .options a {
+      text-decoration: none;
+      color: red;
+      font-weight: 500;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      background: red;
       color: #fff;
-      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
       cursor: pointer;
       transition: 0.3s;
     }
 
-    button:hover {
-      background: #4338ca;
+    .btn:hover {
+      background: #c40000;
     }
 
-    .links {
-      text-align: center;
-      margin-top: 1rem;
+    .toggle-link {
+      margin-top: 15px;
+      font-size: 14px;
     }
 
-    .links a {
-      color: var(--primary);
+    .toggle-link a {
+      color: red;
       text-decoration: none;
-      font-size: 0.9rem;
-      cursor: pointer;
+      font-weight: 600;
     }
 
-    .links a:hover {
-      text-decoration: underline;
-    }
-
-    .toggle-theme {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 1.5rem;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-
-    .form-section {
+    .form {
       display: none;
+      animation: fadeIn 0.4s ease;
     }
 
-    .form-section.active {
+    .form.active {
       display: block;
-      animation: slideIn 0.4s ease;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
     }
 
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 400px) {
+    @media (max-width: 480px) {
       .container {
-        width: 90%;
-        padding: 1.5rem;
+        padding: 30px 20px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- <button class="toggle-theme">🌙 Dark Mode</button> -->
-
-    <!-- Login Section -->
-    <div class="form-section active" id="login-section">
-      <h2>Login</h2>
-      <form onsubmit="handleSubmit(event)">
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
-      <button> <a href="404.html">Login</a></button>
-      </form>
-      <div class="links">
-        <!-- <a onclick="showSection('forgot')">Forgot Password?</a><br /> -->
-        <a href="404.html">Forgot Password?</a><br />
-        <a href="404.html">Don't have an account? Sign Up</a>
+    <!-- Login Form -->
+    <div class="form active" id="loginForm">
+      <h2>Sign In to Your Account</h2>
+      <div class="input-group">
+        <label>Email Address</label>
+        <input type="email" id="loginEmail" placeholder="Enter your email" />
       </div>
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" id="loginPassword" placeholder="Enter your password" />
+      </div>
+      <div class="options">
+        <label><input type="checkbox" /> Remember Me</label>
+        <a href="#" onclick="showForm('forgotForm')">Forgot Password?</a>
+      </div>
+      <button class="btn" onclick="login()">Sign In</button>
+      <p class="toggle-link">Don’t have an account? <a href="#" onclick="showForm('signupForm')">Create one</a></p>
     </div>
 
-    <!-- Signup Section -->
-    <div class="form-section" id="signup-section">
-      <h2>Sign Up</h2>
-      <form onsubmit="handleSubmit(event)">
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
-        <input type="password" placeholder="Confirm Password" required />
-        <button type="submit">Create Account</button>
-      </form>
-      <div class="links">
-        <a onclick="showSection('login')">Already have an account? Login</a>
+    <!-- Signup Form -->
+    <div class="form" id="signupForm">
+      <h2>Create Your Account</h2>
+      <div class="input-group">
+        <label>Full Name</label>
+        <input type="text" id="signupName" placeholder="Enter your name" />
       </div>
+      <div class="input-group">
+        <label>Email Address</label>
+        <input type="email" id="signupEmail" placeholder="Enter your email" />
+      </div>
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" id="signupPassword" placeholder="Create password" />
+      </div>
+      <button class="btn" onclick="signup()">Sign Up</button>
+      <p class="toggle-link">Already have an account? <a href="#" onclick="showForm('loginForm')">Sign In</a></p>
     </div>
 
-    <!-- Forgot Password Section -->
-    <div class="form-section" id="forgot-section">
+    <!-- Forgot Password Form -->
+    <div class="form" id="forgotForm">
       <h2>Forgot Password</h2>
-      <form onsubmit="handleSubmit(event)">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit">Reset Password</button>
-      </form>
-      <div class="links">
-        <a onclick="showSection('login')">Back to Login</a>
+      <div class="input-group">
+        <label>Email Address</label>
+        <input type="email" id="forgotEmail" placeholder="Enter your registered email" />
       </div>
+      <button class="btn" onclick="resetPassword()">Reset Password</button>
+      <p class="toggle-link"><a href="#" onclick="showForm('loginForm')">Back to Sign In</a></p>
     </div>
   </div>
 
   <script>
-    // Show Section Function
-    function showSection(section) {
-      document.querySelectorAll(".form-section").forEach((form) => {
-        form.classList.remove("active");
+    // Toggle between forms
+    function showForm(formId) {
+      document.querySelectorAll('.form').forEach(form => {
+        form.classList.remove('active');
       });
-      document.getElementById(section + "-section").classList.add("active");
+      document.getElementById(formId).classList.add('active');
     }
 
-    // Dark/Light Mode Toggle
-    const toggle = document.querySelector(".toggle-theme");
-    toggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-      toggle.textContent = document.body.classList.contains("dark")
-        ? "☀️ Light Mode"
-        : "🌙 Dark Mode";
-    });
+    // Login validation
+    function login() {
+      let email = document.getElementById('loginEmail').value.trim();
+      let password = document.getElementById('loginPassword').value.trim();
 
-    // Demo Form Submit
-    function handleSubmit(e) {
-      e.preventDefault();
-      alert("Form submitted successfully!");
+      if (email === "" || password === "") {
+        alert("Please fill in all fields!");
+      } else {
+        alert("Welcome!");
+        window.location.href = "404.html";
+      }
+    }
+
+    // Signup validation
+    function signup() {
+      let name = document.getElementById('signupName').value.trim();
+      let email = document.getElementById('signupEmail').value.trim();
+      let password = document.getElementById('signupPassword').value.trim();
+
+      if (name === "" || email === "" || password === "") {
+        alert("Please fill in all fields!");
+      } else {
+        alert("Welcome!");
+        window.location.href = "404.html";
+      }
+    }
+
+    // Forgot password validation
+    function resetPassword() {
+      let email = document.getElementById('forgotEmail').value.trim();
+
+      if (email === "") {
+        alert("Please fill in this field!");
+      } else {
+        alert("Password reset link has been sent to your email!");
+        window.location.href = "404.html";
+      }
     }
   </script>
 </body>
