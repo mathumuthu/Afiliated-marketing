@@ -15,6 +15,28 @@
 <body>
 
 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div class="topbar">
     <header class="header">
       <div class="logo">
@@ -52,7 +74,6 @@
       </div>
     </nav>
   </div>
-
 
 
 
@@ -238,5 +259,71 @@
 
 
   <script src="./script.js"></script>
+  <style>/* Default (Desktop) */
+video {
+  width: 100%;
+  max-width: 740px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Video section layout */
+.about-flex,
+.commission-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Tablet view */
+@media (max-width: 992px) {
+  .about-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image video {
+    max-width: 90%;
+    margin-top: 20px;
+  }
+
+  .commission-image video {
+    max-width: 90%;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 600px) {
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .about-image,
+  .commission-image {
+    padding: 0 10px;
+  }
+
+  .about-image video,
+  .commission-image video {
+    width: 100%;
+    height: auto;
+  }
+
+  .about-text p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .feature-grid,
+  .steps-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+</style>
 </body>
 </html>
