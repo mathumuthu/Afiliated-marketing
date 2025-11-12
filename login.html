@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Signup / Forgot Password | Stackly</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    :root {
+      --bg: #8a1174;
+      --text: #111827;
+      --card: #fff;
+      --primary: #4f46e5;
+      --border: #d1d5db;
+    }
+
+    body.dark {
+      --bg: #0f172a;
+      --text: #f1f5f9;
+      --card: #1e293b;
+      --primary: #6366f1;
+      --border: #475569;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+    }
+
+    .container {
+      background: var(--card);
+      width: 350px;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.5s ease;
+      position: relative;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.2rem;
+      color: var(--primary);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input {
+      margin: 0.5rem 0;
+      padding: 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      background: transparent;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    input:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: var(--primary);
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #4338ca;
+    }
+
+    .links {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    .toggle-theme {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 1.5rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .form-section {
+      display: none;
+    }
+
+    .form-section.active {
+      display: block;
+      animation: slideIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 400px) {
+      .container {
+        width: 90%;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- <button class="toggle-theme">🌙 Dark Mode</button> -->
+
+    <!-- Login Section -->
+    <div class="form-section active" id="login-section">
+      <h2>Login</h2>
+      <form onsubmit="handleSubmit(event)">
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+      <button> <a href="404.html">Login</a></button>
+      </form>
+      <div class="links">
+        <!-- <a onclick="showSection('forgot')">Forgot Password?</a><br /> -->
+        <a href="404.html">Forgot Password?</a><br />
+        <a href="404.html">Don't have an account? Sign Up</a>
+      </div>
+    </div>
+
+    <!-- Signup Section -->
+    <div class="form-section" id="signup-section">
+      <h2>Sign Up</h2>
+      <form onsubmit="handleSubmit(event)">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <input type="password" placeholder="Confirm Password" required />
+        <button type="submit">Create Account</button>
+      </form>
+      <div class="links">
+        <a onclick="showSection('login')">Already have an account? Login</a>
+      </div>
+    </div>
+
+    <!-- Forgot Password Section -->
+    <div class="form-section" id="forgot-section">
+      <h2>Forgot Password</h2>
+      <form onsubmit="handleSubmit(event)">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">Reset Password</button>
+      </form>
+      <div class="links">
+        <a onclick="showSection('login')">Back to Login</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Show Section Function
+    function showSection(section) {
+      document.querySelectorAll(".form-section").forEach((form) => {
+        form.classList.remove("active");
+      });
+      document.getElementById(section + "-section").classList.add("active");
+    }
+
+    // Dark/Light Mode Toggle
+    const toggle = document.querySelector(".toggle-theme");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      toggle.textContent = document.body.classList.contains("dark")
+        ? "☀️ Light Mode"
+        : "🌙 Dark Mode";
+    });
+
+    // Demo Form Submit
+    function handleSubmit(e) {
+      e.preventDefault();
+      alert("Form submitted successfully!");
+    }
+  </script>
+</body>
+</html>
